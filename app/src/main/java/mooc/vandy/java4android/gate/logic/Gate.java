@@ -12,13 +12,15 @@ public class Gate {
     public static final int CLOSED = 0;
     private int mSwing;
 
+
     public Gate() {
-        this.mSwing = CLOSED;
+        mSwing = CLOSED;
     }
 
 
-    public static boolean setSwing(int mSwing) {
+    public boolean setSwing(int mSwing) {
         if (mSwing == IN || mSwing == OUT || mSwing == CLOSED) {
+            this.mSwing = mSwing;
             return true;
         } else {
             return false;
@@ -44,13 +46,13 @@ public class Gate {
     }
 
     public int thru(int count) {
+        int hayvanSayisi = 0;
+        if (this.mSwing == IN)
+            return hayvanSayisi + count;
+        else if (this.mSwing == OUT)
+            return (hayvanSayisi - count);
 
-        if (this.mSwing == IN) {
-            return  count;
-        } if (this.mSwing == OUT) {
-            return (0 - count);
-        }
-        return 0;
+        return hayvanSayisi;
     }
 
 
