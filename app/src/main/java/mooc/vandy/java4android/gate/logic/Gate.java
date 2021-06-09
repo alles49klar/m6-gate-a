@@ -37,15 +37,15 @@ public class Gate {
         setSwing(CLOSED);
     }
 
-    public static int getSwing() {
+    public static int getSwingDirection() {
         return mSwing;
     }
 
     public int thru(int count) {
         int hayvanSayisi = 0;
-        if (getSwing() == IN)
+        if (getSwingDirection() == IN)
             return hayvanSayisi + count;
-        else if (getSwing() == OUT)
+        else if (getSwingDirection() == OUT)
             return hayvanSayisi - count;
         else
             return hayvanSayisi;
@@ -54,11 +54,11 @@ public class Gate {
 
     @Override
     public String toString() {
-        if (getSwing() == CLOSED) {
+        if (getSwingDirection() == CLOSED) {
             return "This gate is closed";
-        } else if (getSwing() == IN) {
+        } else if (getSwingDirection() == IN) {
             return "This gate is open and swings to enter the pen only";
-        } else if (getSwing() == OUT) {
+        } else if (getSwingDirection() == OUT) {
             return "This gate is open and swings to exit the pen only";
         } else {
             return "This gate has an invalid swing direction";
