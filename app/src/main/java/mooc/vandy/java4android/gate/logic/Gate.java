@@ -10,7 +10,7 @@ public class Gate {
     public static final int IN = 1;
     public static final int OUT = -1;
     public static final int CLOSED = 0;
-    private static int mSwing;
+    private int mSwing;
 
     public Gate() {
         mSwing = CLOSED;
@@ -20,8 +20,9 @@ public class Gate {
     public static boolean setSwing(int mSwing) {
         if (mSwing == IN || mSwing == OUT || mSwing == CLOSED) {
             return true;
-        } else
+        } else {
             return false;
+        }
 
     }
 
@@ -29,26 +30,27 @@ public class Gate {
         if (mSwing != CLOSED) {
             setSwing(mSwing);
             return true;
-        } else
+        } else {
             return false;
+        }
     }
 
     public void close() {
         setSwing(CLOSED);
     }
 
-    public static int getSwingDirection() {
+    public int getSwingDirection() {
         return mSwing;
     }
 
     public int thru(int count) {
         int hayvanSayisi = 0;
-        if (getSwingDirection() == IN)
+        if (this.mSwing == IN) {
             return hayvanSayisi + count;
-        else if (getSwingDirection() == OUT)
+        } if (this.mSwing == OUT) {
             return hayvanSayisi - count;
-        else
-            return hayvanSayisi;
+        }
+        return hayvanSayisi;
     }
 
 
