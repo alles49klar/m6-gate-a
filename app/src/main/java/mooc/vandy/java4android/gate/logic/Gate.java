@@ -13,7 +13,7 @@ public class Gate {
     private int mSwing;
 
     public Gate() {
-        mSwing = CLOSED;
+        this.mSwing = CLOSED;
     }
 
 
@@ -44,13 +44,13 @@ public class Gate {
     }
 
     public int thru(int count) {
-        int hayvanSayisi = 0;
+
         if (this.mSwing == IN) {
-            return hayvanSayisi + count;
+            return  count;
         } if (this.mSwing == OUT) {
-            return hayvanSayisi - count;
+            return (0 - count);
         }
-        return hayvanSayisi;
+        return 0;
     }
 
 
